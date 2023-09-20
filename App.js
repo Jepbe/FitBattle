@@ -28,7 +28,7 @@ export default function App() {
       <TouchableOpacity 
         onPress={() =>{}} 
         style={{
-          backgroundColor: '#AD40AF', 
+          backgroundColor: '#005A9C', 
           padding: 18, 
           borderRadius: 10, 
           marginBottom: 30,
