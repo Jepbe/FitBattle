@@ -1,13 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 
-
 export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <stack.Screen name="Login" component={Login} /> 
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+function HomeScreen() {
   const [text, onChangeText] = React.useState('');
   const [Psswd, onChangePsswd] = React.useState('');
   
   return (
+    <NavigationContainer>{
     <View style={styles.container}>
       <Image source={require('./assets/FitBattleLogo.jpg')} style={styles.mImage} />
       <Text style={styles.headerText}>Login</Text>
@@ -48,6 +63,7 @@ export default function App() {
 
       <StatusBar style="auto" />
     </View>
+    }</NavigationContainer>
   );
 }
 
