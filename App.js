@@ -1,16 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Pressable } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-
+import { Button } from 'react-native-web';
 
 export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={Login} /> 
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+function Login() {
+
   const [text, onChangeText] = React.useState('');
   const [Psswd, onChangePsswd] = React.useState('');
-  
+
   return (
     <View style={styles.container}>
       <Image source={require('./assets/FitBattleLogo.jpg')} style={styles.mImage} />
-      <Text style={styles.headerText}>Login</Text>
       <TextInput 
         style={styles.input}
         onChangeText={onChangeText}
@@ -25,28 +38,49 @@ export default function App() {
         secureTextEntry={true}
       />
 
-      <TouchableOpacity 
-        onPress={() =>{}} 
-        style={{
-          backgroundColor: '#005A9C', 
-          padding: 18, 
-          borderRadius: 10, 
-          marginBottom: 30,
-          width: 150, 
-          }}>
-        <Text 
-          style={{
-            textAlign: 'center',
-            fontWeight: '700',
-            fontSize: 16,
-            color: '#fff',
-          }}>
-            Login
-          </Text>
-      </TouchableOpacity>
+<Pressable style={{
+          padding: 10, 
+      }} 
+      onPress={() => navigation.navigate('Login')}
+      >
+      <Text style={{
+        textAlign: 'center',
+        color: '#5A5A5A',
+        fontSize: 20,
+        fontWeight: '500',
+      }}>
+        Login.
+      </Text>
 
+      </Pressable>
 
       <StatusBar style="auto" />
+    </View>  
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+function HomeScreen({ navigation }) {
+
+  return (
+    <View style={styles.container}>
+      <Image source={require('./assets/FitBattleLogo.jpg')} style={styles.mImage} />
+      <Pressable style={{
+          padding: 18, 
+      }} 
+      onPress={() => navigation.navigate('Login')}
+      >
+      <Text style={{
+        textAlign: 'center',
+        color: '#5A5A5A',
+        fontSize: 20,
+        fontWeight: '500',
+      }}>
+        Login.
+      </Text>
+
+      </Pressable>
     </View>
   );
 }
