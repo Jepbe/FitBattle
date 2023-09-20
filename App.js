@@ -9,9 +9,18 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <stack.Screen name="Login" component={Login} /> 
+        <Stack.Screen name="Login" component={Login} /> 
       </Stack.Navigator>
     </NavigationContainer>
+  );
+}
+
+function Login() {
+  return(
+      <view style={styles.container}>
+        <Image source={require('./assets/FitBattleLogo.jpg')} style={styles.mImage} />
+      </view>
+      
   );
 }
 
@@ -22,7 +31,6 @@ function HomeScreen() {
   const [Psswd, onChangePsswd] = React.useState('');
   
   return (
-    <NavigationContainer>{
     <View style={styles.container}>
       <Image source={require('./assets/FitBattleLogo.jpg')} style={styles.mImage} />
       <Text style={styles.headerText}>Login</Text>
@@ -63,7 +71,6 @@ function HomeScreen() {
 
       <StatusBar style="auto" />
     </View>
-    }</NavigationContainer>
   );
 }
 
