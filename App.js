@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Pressable, useState } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
@@ -43,12 +43,7 @@ function Login({ navigation }) {
       }} 
       onPress={() => navigation.navigate('Login')}
       >
-      <Text style={{
-        textAlign: 'center',
-        color: '#5A5A5A',
-        fontSize: 20,
-        fontWeight: '500',
-      }}>
+      <Text style={styles.Grey}>
         Login.
       </Text>
 
@@ -93,12 +88,7 @@ function Signup({ navigation }) {
       }} 
       onPress={() => navigation.navigate('Signup')}
       >
-      <Text style={{
-        textAlign: 'center',
-        color: '#5A5A5A',
-        fontSize: 20,
-        fontWeight: '500',
-      }}>
+      <Text style={styles.Grey}>
         Sign up.
       </Text>
 
@@ -121,12 +111,7 @@ function HomeScreen({ navigation }) {
       }} 
       onPress={() => navigation.navigate('Login')}
       >
-      <Text style={{
-        textAlign: 'center',
-        color: '#5A5A5A',
-        fontSize: 20,
-        fontWeight: '500',
-      }}>
+      <Text style={styles.Grey}>
         Login.
       </Text>
       </Pressable>
@@ -136,12 +121,7 @@ function HomeScreen({ navigation }) {
       }} 
       onPress={() => navigation.navigate('Signup')}
       >
-      <Text style={{
-        textAlign: 'center',
-        color: '#5A5A5A',
-        fontSize: 20,
-        fontWeight: '500',
-      }}>
+      <Text style={styles.Grey}>
         Sign up.
       </Text>
       </Pressable>
@@ -174,6 +154,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     width: 200,
+  },
+
+  Grey: {
+    textAlign: 'center',
+    color: '#5A5A5A',
+    fontSize: 20,
+    fontWeight: '500',
   },
 
 });
