@@ -24,9 +24,9 @@ function HomeScreen() {
 function Navbar() {
   return (
     <View style={[styles.navbar]}> 
-      <Pressable href="/">
+      <Link href="/">
         <Text style={{fontSize: 40,}}>🏠</Text>
-      </Pressable>
+      </Link>
     </View>
   );
 }
